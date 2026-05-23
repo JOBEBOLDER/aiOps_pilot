@@ -1,0 +1,30 @@
+# Web framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+sse-starlette>=2.1.0
+python-multipart>=0.0.9
+
+# LLM & Agent orchestration
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+langchain-text-splitters>=0.3.0
+langgraph>=0.2.0
+langchain-qwq>=0.1.0
+
+# Vector store
+langchain-milvus>=0.1.0
+pymilvus>=2.4.0
+
+# MCP (Model Context Protocol)
+langchain-mcp-adapters>=0.1.0
+mcp>=1.0.0
+
+# LLM provider
+openai>=1.50.0
+
+# Utilities
+loguru>=0.7.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
