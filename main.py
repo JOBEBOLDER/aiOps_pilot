@@ -99,8 +99,8 @@ from app.api.health import router as health_router
 app.include_router(health_router, prefix="/api")
 
 # Day 2: file upload & indexing
-# from app.api.file import router as file_router
-# app.include_router(file_router, prefix="/api")
+from app.api.file import router as file_router
+app.include_router(file_router, prefix="/api")
 
 # Day 3: RAG chat agent
 # from app.api.chat import router as chat_router
