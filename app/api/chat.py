@@ -16,31 +16,37 @@ router = APIRouter()
 
 @router.post("/chat")
 async def chat(request: ChatRequest):
-    """快速对话接口
+    """Quick chat endpoint.
+
+    Example response:
+
     {
         "code": 200,
         "message": "success",
         "data": {
             "success": true,
-            "answer": "回答内容",
+            "answer": "response content",
             "errorMessage": null
         }
     }
 
     Args:
-        request: 对话请求
+        request: Chat request.
 
     Returns:
-        统一格式的对话响应
+        A chat response in a standard JSON format.
     """
+
     try:
-        logger.info(f"[会话 {request.id}] 收到快速对话请求: {request.question}")
+        logger.info(
+            f"[conversation {request.id}] received chat request: {request.question}"
+        )
         answer = await rag_agent_service.query(
             request.question,
             session_id=request.id
         )
 
-        logger.info(f"[会话 {request.id}] 快速对话完成")
+        logger.info(f"[conversation {request.id}] quick conversation completed")
 
         return {
             "code": 200,
@@ -53,7 +59,7 @@ async def chat(request: ChatRequest):
         }
 
     except Exception as e:
-        logger.error(f"对话接口错误: {e}")
+        logger.error(f"conversation endpoint error: {e}")
         return {
             "code": 500,
             "message": "error",
